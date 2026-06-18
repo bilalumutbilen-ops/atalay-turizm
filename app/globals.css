@@ -3,24 +3,92 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #c40000;
+  --primary-dark: #990000;
+  --soft-gray: #f6f6f6;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), Arial, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-inter), Arial, sans-serif;
+  letter-spacing: -0.04em;
+}
+
+a {
+  text-decoration: none;
+}
+
+::selection {
+  background: var(--primary);
+  color: white;
+}
+
+@keyframes progressFill {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes loaderExit {
+  0% {
+    opacity: 0;
+    transform: scale(0.96) translateY(12px);
+  }
+
+  25% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+
+  75% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.98) translateY(-14px);
+  }
+}
+
+@keyframes heroProgress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes heroTextIn {
+  0% {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
