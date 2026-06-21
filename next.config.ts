@@ -8,10 +8,21 @@ const nextConfig: NextConfig = {
         has: [
           {
             type: "host",
+            value: "atalayturizm.com",
+          },
+        ],
+        destination: "https://www.atalaytur.com/:path*",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
             value: "www.atalayturizm.com",
           },
         ],
-        destination: "https://atalayturizm.com/:path*",
+        destination: "https://www.atalaytur.com/:path*",
         permanent: true,
       },
     ];

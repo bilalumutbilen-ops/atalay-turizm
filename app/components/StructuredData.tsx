@@ -1,4 +1,4 @@
-const siteUrl = "https://atalayturizm.com";
+const siteUrl = "https://www.atalaytur.com";
 const contactEmail =
   process.env.NEXT_PUBLIC_CONTACT_EMAIL || "gemlikatalayturizm@gmail.com";
 
@@ -22,7 +22,7 @@ const localBusinessSchema = {
   areaServed: ["Gemlik", "Bursa"],
   description:
     "Bursa ve Gemlik çevresinde personel taşımacılığı, öğrenci servisi, kurumsal servis ve özel ulaşım çözümleri.",
-  sameAs: ["https://atalayturizm.com"],
+  sameAs: ["https://www.atalaytur.com"],
 };
 
 export default function StructuredData() {

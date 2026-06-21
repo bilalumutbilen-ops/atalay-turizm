@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Atalay Turizm" }],
   creator: "Atalay Turizm",
   publisher: "Atalay Turizm",
-  metadataBase: new URL("https://atalayturizm.com"),
+  metadataBase: new URL("https://www.atalaytur.com"),
 
   icons: {
     icon: "/atalay-logo.png",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title: "Atalay Turizm | Bursa Personel ve Öğrenci Taşımacılığı",
     description:
       "Bursa merkezli personel taşımacılığı, öğrenci servisi, kurumsal servis hizmetleri, tur organizasyonları ve özel ulaşım çözümleri.",
-    url: "https://atalayturizm.com",
+    url: "https://www.atalaytur.com",
     siteName: "Atalay Turizm",
     locale: "tr_TR",
     type: "website",
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: "https://atalayturizm.com",
+    canonical: "https://www.atalaytur.com",
   },
   verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
     ? {

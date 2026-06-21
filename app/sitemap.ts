@@ -1,53 +1,55 @@
 import type { MetadataRoute } from "next";
 
+const siteUrl = "https://www.atalaytur.com";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date("2026-06-21");
 
   return [
     {
-      url: "https://atalayturizm.com",
+      url: siteUrl,
       lastModified,
       changeFrequency: "weekly",
       priority: 1,
     },
     {
-      url: "https://atalayturizm.com/hakkimizda",
+      url: `${siteUrl}/hakkimizda`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: "https://atalayturizm.com/filomuz",
+      url: `${siteUrl}/filomuz`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: "https://atalayturizm.com/iletisim",
+      url: `${siteUrl}/iletisim`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: "https://atalayturizm.com/kvkk-aydinlatma-metni",
+      url: `${siteUrl}/kvkk-aydinlatma-metni`,
       lastModified,
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
-      url: "https://atalayturizm.com/gizlilik-politikasi",
+      url: `${siteUrl}/gizlilik-politikasi`,
       lastModified,
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
-      url: "https://atalayturizm.com/cerez-politikasi",
+      url: `${siteUrl}/cerez-politikasi`,
       lastModified,
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
-      url: "https://atalayturizm.com/yasal-uyari",
+      url: `${siteUrl}/yasal-uyari`,
       lastModified,
       changeFrequency: "yearly",
       priority: 0.3,
