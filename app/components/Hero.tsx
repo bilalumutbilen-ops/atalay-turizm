@@ -45,7 +45,7 @@ export default function Hero() {
   }, [advanceSlide, currentImage]);
 
   return (
-    <section className="relative h-screen min-h-[720px] overflow-hidden bg-black text-white">
+    <section className="relative min-h-[100svh] overflow-hidden bg-black text-white md:h-screen md:min-h-[720px]">
       {heroImages.map((image, index) => (
         <Image
           key={image}
@@ -54,7 +54,7 @@ export default function Hero() {
           fill
           priority={index === 0}
           sizes="100vw"
-          className={`absolute inset-0 object-contain object-center transition-[opacity,transform] duration-[1800ms] ease-out md:object-cover ${
+          className={`absolute inset-0 hidden object-cover object-center transition-[opacity,transform] duration-[1800ms] ease-out md:block ${
             currentImage === index
               ? "scale-100 opacity-100 md:scale-110"
               : "scale-100 opacity-0"
@@ -67,21 +67,31 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#050505] to-transparent" />
 
-      <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-6 pt-20">
-        <div className="max-w-3xl animate-[heroTextIn_1s_ease-out_forwards]">
-          <p className="mb-5 text-2xl font-black uppercase tracking-[0.18em] text-[#E00000] md:text-4xl">
+      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl items-center px-6 pb-10 pt-28 md:h-full md:min-h-0 md:pb-0 md:pt-20">
+        <div className="w-full max-w-3xl animate-[heroTextIn_1s_ease-out_forwards]">
+          <p className="mb-4 text-xl font-black uppercase tracking-[0.18em] text-[#E00000] md:mb-5 md:text-4xl">
             Konforlu, Güvenli ve
           </p>
 
-          <h1 className="text-5xl font-black leading-[1.02] tracking-[-0.06em] md:text-7xl">
+          <h1 className="text-5xl font-black leading-[1.02] tracking-[-0.04em] md:text-7xl">
             Zamanında Ulaşım
           </h1>
 
-          <p className="mt-6 max-w-xl text-base font-medium leading-8 text-white/78 md:text-lg">
+          <p className="mt-5 max-w-xl text-base font-medium leading-8 text-white/78 md:mt-6 md:text-lg">
             Modern araç filomuz, deneyimli kadromuz ve kaliteli hizmet
             anlayışımızla personel taşımacılığı, öğrenci servisi ve kurumsal
             ulaşım çözümlerinde yanınızdayız.
           </p>
+
+          <div className="relative -mx-6 mt-6 aspect-[16/10] overflow-hidden border-y border-white/10 bg-[#080808] md:hidden">
+            <Image
+              src={heroImages[currentImage]}
+              alt={`Atalay araç filosu ${currentImage + 1}`}
+              fill
+              sizes="100vw"
+              className="object-contain object-center"
+            />
+          </div>
 
           <div className="mt-8 flex flex-wrap gap-4">
             <a
@@ -102,7 +112,7 @@ export default function Hero() {
             </a>
           </div>
 
-          <div className="mt-20 flex items-center gap-5">
+          <div className="mt-12 flex items-center gap-5 md:mt-20">
             <button
               type="button"
               onClick={prevSlide}
