@@ -1,4 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
+
+const contactEmail =
+  process.env.NEXT_PUBLIC_CONTACT_EMAIL || "gemlikatalayturizm@gmail.com";
 
 export default function Footer() {
   return (
@@ -29,21 +33,52 @@ export default function Footer() {
             </h3>
 
             <div className="mt-5 flex flex-col gap-3 text-sm text-white/60">
-              <a href="/" className="transition hover:text-white">
+              <Link href="/" className="transition hover:text-white">
                 Anasayfa
-              </a>
+              </Link>
 
-              <a href="/hakkimizda" className="transition hover:text-white">
+              <Link href="/hakkimizda" className="transition hover:text-white">
                 Hakkımızda
-              </a>
+              </Link>
 
-              <a href="/filomuz" className="transition hover:text-white">
+              <Link href="/filomuz" className="transition hover:text-white">
                 Filomuz
-              </a>
+              </Link>
 
-              <a href="/iletisim" className="transition hover:text-white">
+              <Link href="/iletisim" className="transition hover:text-white">
                 İletişim
-              </a>
+              </Link>
+            </div>
+
+            <h3 className="mt-8 text-sm font-black uppercase tracking-widest text-[#E00000]">
+              Yasal
+            </h3>
+
+            <div className="mt-5 flex flex-col gap-3 text-sm text-white/60">
+              <Link
+                href="/kvkk-aydinlatma-metni"
+                className="transition hover:text-white"
+              >
+                KVKK Aydınlatma Metni
+              </Link>
+
+              <Link
+                href="/gizlilik-politikasi"
+                className="transition hover:text-white"
+              >
+                Gizlilik Politikası
+              </Link>
+
+              <Link
+                href="/cerez-politikasi"
+                className="transition hover:text-white"
+              >
+                Çerez Politikası
+              </Link>
+
+              <Link href="/yasal-uyari" className="transition hover:text-white">
+                Yasal Uyarı
+              </Link>
             </div>
           </div>
 
@@ -80,6 +115,16 @@ export default function Footer() {
                   💬
                 </span>
                 WhatsApp ile iletişime geç
+              </a>
+
+              <a
+                href={`mailto:${contactEmail}`}
+                className="flex items-center gap-3 transition hover:text-white"
+              >
+                <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.05] text-[#E00000]">
+                  @
+                </span>
+                {contactEmail}
               </a>
             </div>
           </div>

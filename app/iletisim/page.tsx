@@ -3,9 +3,11 @@
 import { useState } from "react";
 
 const mapQuery =
-  "Dr. Ziya Kaya Mahallesi İstiklal Caddesi Batum İş Merkezi Kat 4 Gemlik Bursa";
+  "Atalay Turizm Hamidiye Kuvayi Milliye Bl. Batum İş Hanı Kat 4 16600 Gemlik Bursa";
 
 const encodedMapQuery = encodeURIComponent(mapQuery);
+const contactEmail =
+  process.env.NEXT_PUBLIC_CONTACT_EMAIL || "gemlikatalayturizm@gmail.com";
 
 export default function IletisimPage() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
@@ -26,6 +28,8 @@ export default function IletisimPage() {
       email: String(formData.get("email") || ""),
       service: String(formData.get("service") || ""),
       message: String(formData.get("message") || ""),
+      kvkkAccepted: formData.get("kvkkAccepted") === "on",
+      marketingConsent: formData.get("marketingConsent") === "on",
     };
 
     try {
@@ -109,10 +113,10 @@ export default function IletisimPage() {
                 </p>
 
                 <a
-                  href="mailto:gemlikatalayturizm@gmail.com"
+                  href={`mailto:${contactEmail}`}
                   className="mt-3 block break-all text-lg font-semibold text-white/75 transition hover:text-white"
                 >
-                  gemlikatalayturizm@gmail.com
+                  {contactEmail}
                 </a>
               </div>
 
@@ -137,13 +141,13 @@ export default function IletisimPage() {
                 </p>
 
                 <p className="mt-3 text-lg leading-8 text-white/70">
-                  Dr. Ziya Kaya Mahallesi
+                  Hamidiye
                   <br />
-                  İstiklal Caddesi
+                  Kuvayi Milliye Bl.
                   <br />
-                  Batum İş Merkezi Kat: 4
+                  Batum İş Hanı Kat: 4
                   <br />
-                  Gemlik / Bursa
+                  16600 Gemlik / Bursa
                 </p>
 
                 <a
@@ -209,6 +213,39 @@ export default function IletisimPage() {
               placeholder="Mesajınız *"
               className="mt-5 w-full rounded-xl border border-white/10 bg-white/10 px-5 py-4 text-white outline-none placeholder:text-white/40 focus:border-[#E00000]"
             />
+
+            <label className="mt-5 flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-4 text-sm leading-6 text-white/70">
+              <input
+                name="kvkkAccepted"
+                type="checkbox"
+                required
+                className="mt-1 h-4 w-4 shrink-0 accent-[#C40000]"
+              />
+              <span>
+                Kişisel verilerimin işlenmesine ilişkin{" "}
+                <a
+                  href="/kvkk-aydinlatma-metni"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold text-white underline decoration-[#E00000] underline-offset-4 transition hover:text-[#E00000]"
+                >
+                  KVKK Aydınlatma Metni
+                </a>
+                &apos;ni okudum.
+              </span>
+            </label>
+
+            <label className="mt-3 flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.025] p-4 text-sm leading-6 text-white/60">
+              <input
+                name="marketingConsent"
+                type="checkbox"
+                className="mt-1 h-4 w-4 shrink-0 accent-[#C40000]"
+              />
+              <span>
+                Kampanya, bilgilendirme ve tanıtım amaçlı ticari elektronik
+                ileti gönderilmesine onay veriyorum.
+              </span>
+            </label>
 
             <button
               type="submit"

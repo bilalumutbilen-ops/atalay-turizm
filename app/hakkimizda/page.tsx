@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Hakkımızda",
+  description:
+    "Atalay Turizm'in personel taşımacılığı, öğrenci servisi ve kurumsal ulaşım hizmetlerindeki yaklaşımını keşfedin.",
+};
+
 const values = [
   "Güvenli ulaşım standardı",
   "Dakik operasyon yönetimi",

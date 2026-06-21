@@ -19,7 +19,7 @@ export default function Navbar() {
 
   return (
     <header className="fixed left-0 right-0 top-0 z-[999] w-full border-b border-white/10 bg-black/80 shadow-2xl shadow-black/20 backdrop-blur-xl">
-      <div className="mx-auto grid max-w-[1700px] grid-cols-[300px_1fr_280px] items-center px-10 py-5">
+      <div className="mx-auto grid max-w-[1700px] grid-cols-[420px_1fr_160px] items-center px-10 py-3">
         <Link
           href="/"
           onClick={() => setIsOpen(false)}
@@ -28,11 +28,11 @@ export default function Navbar() {
         >
           <Image
             src="/images/atalay-main-logo.png"
-            alt="Atalay"
-            width={260}
-            height={90}
+            alt="Atalay Turizm"
+            width={340}
+            height={118}
             priority
-            className="h-14 w-auto object-contain brightness-0 invert"
+            className="h-20 w-auto object-contain"
           />
         </Link>
 
@@ -45,7 +45,7 @@ export default function Navbar() {
                 link.active ? "text-white" : "text-white/85 hover:text-white"
               } ${
                 link.active
-                  ? "after:absolute after:-bottom-3 after:left-0 after:h-[2px] after:w-full after:bg-white"
+                  ? "after:absolute after:-bottom-3 after:left-0 after:h-[2px] after:w-full after:bg-[#C40000]"
                   : ""
               }`}
             >
@@ -54,17 +54,7 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden items-center justify-end gap-5 lg:flex">
-          <div className="h-10 w-px bg-white/25" />
-
-          <a
-            href="tel:02662435252"
-            className="flex items-center gap-3 text-lg font-medium text-white transition hover:text-white/75"
-          >
-            <span className="text-2xl">☎</span>
-            <span>0266 243 52 52</span>
-          </a>
-        </div>
+        <div className="hidden lg:block" />
 
         <button
           type="button"
@@ -91,18 +81,10 @@ export default function Navbar() {
               </Link>
             ))}
 
-            <a
-              href="tel:02662435252"
-              onClick={() => setIsOpen(false)}
-              className="mt-3 rounded-md border border-white/25 px-5 py-3 text-center font-bold text-white"
-            >
-              0266 243 52 52
-            </a>
-
             <Link
               href="/iletisim"
               onClick={() => setIsOpen(false)}
-              className="rounded-md bg-[#C40000] px-5 py-3 text-center font-black uppercase tracking-widest text-white"
+              className="rounded-md bg-[#C40000] px-5 py-3 text-center font-black uppercase tracking-widest text-white transition hover:bg-[#E00000]"
             >
               Teklif Al
             </Link>

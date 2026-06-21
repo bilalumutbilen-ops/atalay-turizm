@@ -1,11 +1,30 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Script from "next/script";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID!;
+const consentStorageKey = "atalay-cookie-consent";
 
 export default function GoogleAnalytics() {
-  if (!GA_ID) return null;
+  const [analyticsAllowed, setAnalyticsAllowed] = useState(false);
+
+  useEffect(() => {
+    const updateConsent = () => {
+      setAnalyticsAllowed(
+        window.localStorage.getItem(consentStorageKey) === "accepted"
+      );
+    };
+
+    updateConsent();
+    window.addEventListener("atalay-cookie-consent-change", updateConsent);
+
+    return () => {
+      window.removeEventListener("atalay-cookie-consent-change", updateConsent);
+    };
+  }, []);
+
+  if (!GA_ID || !analyticsAllowed) return null;
 
   return (
     <>

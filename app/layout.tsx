@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import Navbar from "./components/Navbar";
 import GoogleAnalytics from "./components/GoogleAnalytics";
+import CookieConsent from "./components/CookieConsent";
+import StructuredData from "./components/StructuredData";
 import "./globals.css";
 
 const inter = Inter({
@@ -52,7 +54,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.png",
+        url: "/images/publicog-image.png",
         width: 1200,
         height: 630,
         alt: "Atalay Turizm Bursa Ulaşım Çözümleri",
@@ -65,12 +67,17 @@ export const metadata: Metadata = {
     title: "Atalay Turizm | Bursa Personel ve Öğrenci Taşımacılığı",
     description:
       "Bursa merkezli personel taşımacılığı, öğrenci servisi, kurumsal servis hizmetleri, tur organizasyonları ve özel ulaşım çözümleri.",
-    images: ["/og-image.png"],
+    images: ["/images/publicog-image.png"],
   },
 
   alternates: {
     canonical: "https://atalayturizm.com",
   },
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? {
+        google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+      }
+    : undefined,
 };
 
 export default function RootLayout({
@@ -83,6 +90,8 @@ export default function RootLayout({
       <body>
         <Navbar />
         {children}
+        <StructuredData />
+        <CookieConsent />
         <GoogleAnalytics />
       </body>
     </html>

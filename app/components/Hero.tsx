@@ -1,14 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const heroImages = [
-  "/images/hero-1.jpg",
+  "/images/hero-1.png",
   "/images/hero-2.jpg",
-  "/images/hero-3.jpg",
   "/images/hero-4.jpg",
   "/images/hero-5.jpg",
+  "/images/hero-school-service-white.png",
+  "/images/hero-6.png",
 ];
 
 const SLIDE_DURATION = 6500;
@@ -22,8 +23,13 @@ export default function Hero() {
     setProgressKey((prev) => prev + 1);
   };
 
+  const advanceSlide = useCallback(() => {
+    setCurrentImage((prev) => (prev === heroImages.length - 1 ? 0 : prev + 1));
+    setProgressKey((prev) => prev + 1);
+  }, []);
+
   const nextSlide = () => {
-    goToSlide(currentImage === heroImages.length - 1 ? 0 : currentImage + 1);
+    advanceSlide();
   };
 
   const prevSlide = () => {
@@ -31,13 +37,12 @@ export default function Hero() {
   };
 
   useEffect(() => {
-    const slider = setInterval(() => {
-      setCurrentImage((prev) => (prev === heroImages.length - 1 ? 0 : prev + 1));
-      setProgressKey((prev) => prev + 1);
+    const slider = window.setTimeout(() => {
+      advanceSlide();
     }, SLIDE_DURATION);
 
-    return () => clearInterval(slider);
-  }, []);
+    return () => window.clearTimeout(slider);
+  }, [advanceSlide, currentImage]);
 
   return (
     <section className="relative h-screen min-h-[720px] overflow-hidden bg-black text-white">
@@ -64,7 +69,7 @@ export default function Hero() {
 
       <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-6 pt-20">
         <div className="max-w-3xl animate-[heroTextIn_1s_ease-out_forwards]">
-          <p className="mb-4 text-sm font-black uppercase tracking-[0.28em] text-[#E00000] md:text-base">
+          <p className="mb-5 text-2xl font-black uppercase tracking-[0.18em] text-[#E00000] md:text-4xl">
             Konforlu, Güvenli ve
           </p>
 

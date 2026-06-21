@@ -1,4 +1,3 @@
-import LoadingScreen from "./components/LoadingScreen";
 import CTA from "./components/CTA";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
@@ -10,7 +9,6 @@ import WhatsAppButton from "./components/WhatsAppButton";
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#050505] text-white">
-      <LoadingScreen />
       <Hero />
 
       <div className="relative bg-[#050505]">

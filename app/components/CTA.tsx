@@ -52,7 +52,9 @@ export default function CTA() {
             className="flex flex-col gap-4"
           >
             <a
-              href="tel:+905326265866"
+              href="tel:+905340630779"
+              aria-label="Hemen ara: +90 534 063 07 79"
+              title="+90 534 063 07 79"
               className="group relative overflow-hidden rounded-lg bg-[#C40000] px-9 py-4 text-center text-sm font-black uppercase tracking-[0.18em] text-white transition duration-300 hover:-translate-y-2 hover:bg-[#990000]"
             >
               <span className="relative z-10">Hemen Ara</span>
