@@ -19,7 +19,7 @@ export default function Navbar() {
 
   return (
     <header className="fixed left-0 right-0 top-0 z-[999] w-full border-b border-white/10 bg-black/80 shadow-2xl shadow-black/20 backdrop-blur-xl">
-      <div className="mx-auto grid max-w-[1700px] grid-cols-[420px_1fr_160px] items-center px-10 py-3">
+      <div className="mx-auto grid max-w-[1700px] grid-cols-[1fr_auto] items-center px-5 py-3 lg:grid-cols-[420px_1fr_160px] lg:px-10">
         <Link
           href="/"
           onClick={() => setIsOpen(false)}
@@ -32,7 +32,7 @@ export default function Navbar() {
             width={340}
             height={118}
             priority
-            className="h-20 w-auto object-contain"
+            className="h-14 w-auto object-contain sm:h-16 lg:h-20"
           />
         </Link>
 
@@ -61,7 +61,7 @@ export default function Navbar() {
           onClick={() => setIsOpen(!isOpen)}
           aria-expanded={isOpen}
           aria-label="Mobil menüyü aç veya kapat"
-          className="col-start-3 justify-self-end rounded-md border border-white/40 px-4 py-2 text-sm font-bold text-white transition hover:bg-white hover:text-black lg:hidden"
+          className="col-start-2 justify-self-end rounded-md border border-white/40 px-4 py-2 text-sm font-bold text-white transition hover:bg-white hover:text-black lg:hidden"
         >
           {isOpen ? "Kapat" : "Menü"}
         </button>

@@ -12,15 +12,6 @@ const heroImages = [
   "/images/hero-6.png",
 ];
 
-const mobileImagePositions = [
-  "object-[52%_center]",
-  "object-[54%_center]",
-  "object-[55%_center]",
-  "object-[58%_center]",
-  "object-[60%_center]",
-  "object-[56%_center]",
-];
-
 const SLIDE_DURATION = 6500;
 
 export default function Hero() {
@@ -63,7 +54,7 @@ export default function Hero() {
           fill
           priority={index === 0}
           sizes="100vw"
-          className={`absolute inset-0 object-cover ${mobileImagePositions[index]} transition-[opacity,transform] duration-[1800ms] ease-out md:object-center ${
+          className={`absolute inset-0 object-contain object-center transition-[opacity,transform] duration-[1800ms] ease-out md:object-cover ${
             currentImage === index
               ? "scale-100 opacity-100 md:scale-110"
               : "scale-100 opacity-0"
